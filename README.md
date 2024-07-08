@@ -35,7 +35,7 @@ A web application to display and analyze airplane crash data. In Python, it uses
 Web framework used was [Flask](https://flask.palletsprojects.com/en/3.0.x/installation/#install-flask) (3.0.2). Application uses [Jinja](https://jinja.palletsprojects.com/en/3.1.x/intro/#installation) (3.1.3) templating.
 
 ### Getting Started with Bootstrap
-Styled with [Bootstrap 5](https://getbootstrap.com/docs/5.2/getting-started/download/). Also uses [Dash Bootstrap Components](https://dash-bootstrap-components.opensource.faculty.ai/docs/) (1.6.0) and [Dash Bootstrap Templates](https://pypi.org/project/dash-bootstrap-templates/) (1.1.2).
+Styled with [Bootstrap 5](https://getbootstrap.com/docs/5.2/getting-started/download/).
 
 ## Execution
 - `export FLASK_APP=app.py`
