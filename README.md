@@ -11,7 +11,9 @@
  - [Execution](#execution)
 
 ## About
-A web application to display and analyze airplane crash data. In Python, it uses Flask, SQLite and Bootstrap5.
+A web application to display and analyze aircraft disaster data. 
+
+In Python, made using Flask, SQLite and Bootstrap5, and it uses data from a Kaggle dataset.
 
 ## Project Setup
 
