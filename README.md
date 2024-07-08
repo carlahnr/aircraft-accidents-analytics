@@ -11,7 +11,7 @@
  - [Execution](#execution)
 
 ## About
-A web application to display and analyze aircraft disaster data. 
+A web application to display and analyze aircraft disaster data, regarding the history of airplane crashes throughout the world, from 1928 to 2019. This includes flights made by commercial passenger airlines, cargo freights, military and private flights, from assorted countries.
 
 In Python, made using Flask, SQLite and Bootstrap5, and it uses data from a Kaggle dataset.
 
@@ -24,9 +24,9 @@ In Python, made using Flask, SQLite and Bootstrap5, and it uses data from a Kagg
  - **/templates :** templates for the views using mainly HTML and Jinja.
 
 ### Endpoints
- The app contains 2 endpoints:
- - **Home view:** description of the app.
- - **Stats view:** main funcionality view.
+ The app contains 29 endpoints:
+ - **Index:** description of the app and access to other endpoints.
+ - **Stats view:** main funcionality view. 
 
 ### Techstack
  Made in Python, it uses Flask microframework as the web server gateway interface (WSGI). It uses Jinja, HTML, JavaScript, and is styled with CSS (Bootstrap 5). For more details, see [Dependencies](#dependencies).
