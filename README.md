@@ -24,10 +24,11 @@ In Python, made using Flask, SQLite and Bootstrap5, and it uses data from a Kagg
  - **/templates :** templates for the views using mainly HTML and Jinja.
 
 ### Techstack
- Made in Python, it uses Flask microframework as the web server gateway interface (WSGI). It uses Jinja, HTML, JavaScript, and is styled with CSS (Bootstrap 5). For more details, see [Dependencies](#dependencies).
+ Made in Python, it uses Flask microframework as the web server gateway interface (WSGI), with SQLite database. It uses Jinja, HTML, JavaScript, and is styled with CSS (Bootstrap 5). For more details, see [Dependencies](#dependencies).
  
  - Python (3.9.18)
  - Flask
+ - SQLite
  - Bootstrap
 
 ## Dependencies
