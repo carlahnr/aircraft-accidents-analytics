@@ -23,11 +23,6 @@ In Python, made using Flask, SQLite and Bootstrap5, and it uses data from a Kagg
  - **/static :** all static assets, such as Javascript and CSS files.
  - **/templates :** templates for the views using mainly HTML and Jinja.
 
-### Endpoints
- The app contains 29 endpoints:
- - **Index:** description of the app and access to other endpoints.
- - **Stats view:** main funcionality view. 
-
 ### Techstack
  Made in Python, it uses Flask microframework as the web server gateway interface (WSGI). It uses Jinja, HTML, JavaScript, and is styled with CSS (Bootstrap 5). For more details, see [Dependencies](#dependencies).
  
