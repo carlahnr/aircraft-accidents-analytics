@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ flight.PlaneID }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Accident info</h2>
+  <p>
+    <h3>Plane Id: </h3>{{ flight.PlaneID }}
+  </p>
+  <p>
+    <h3>Flight Number: </h3>{{ flight.FlightNumber }}
+  </p>
+  <p>
+    <h3>Date: </h3>{{ flight.Date }}
+  </p>
+  <p>
+    <h3>Time: </h3>{{ flight.Time }}
+  </p>
+  <p>
+    <h3>LocationID: </h3><a href="/locations/{{ flight.LocationID }}">{{ flight.LocationID }}</a>
+  </p>
+  <p>
+    <h3>Type: </h3>{{ flight.Type }}
+  </p>
+  <p>
+    <h3>CarrierID: </h3><a href="/carriers/{{ flight.CarrierID }}">{{ flight.CarrierID }}</a>
+  </p>
+  <p>
+    <h3>Type: </h3>{{ flight.Type }}
+  </p>
+  <p>
+    <h3>AboardPassenger: </h3>{{ flight.AboardPassenger }}
+  </p>
+  <p>
+    <h3>AboardCrew: </h3>{{ flight.AboardCrew }}
+  </p>
+  <p>
+    <h3>FatalityCrew: </h3>{{ flight.FatalityCrew }}
+  </p>
+  <p>
+    <h3>FatalityPassenger: </h3>{{ flight.FatalityPassenger }}
+  </p>
+  <p>
+    <h3>Ground: </h3>{{ flight.Ground }}
+  </p>
+  <p>
+    <h3>Route: </h3>{{ flight.Route }}
+  </p>
+  <p>
+    <h3>Summary: </h3>{{ flight.Summary }}
+  </p>
+{% endblock %}

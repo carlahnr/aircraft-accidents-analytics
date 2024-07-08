@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ country.CountryName }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Country info</h2>
+  <p>
+    <b>CountryID: </b>{{ country.CountryID }}
+  </p>
+  <p>
+    <b>Name: </b>{{ country.CountryName }}
+  </p>
+  <p>
+    <b><a href="/countries/{{ country.CountryID }}/accidents">See all accidents in {{ country.CountryName }}</a></b>
+  </p>
+  <p>
+  {% if cities %}
+    <b>Cities: </b><ul>
+    {% for c in cities %}      
+      <li><a href="/cities/{{ c.CityID }}">{{ c.CityName }}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+  {% endif %}
+
+  {% if locations %}
+  <p>
+    <b>Crash Locations: </b><ul>
+    {% for l in locations %}      
+      <li><a href="/locations/{{ l.LocationID }}">{{ l.LocationID }}</a>{% if l.Description %} - {{ l.Description }}{% endif %}</li>
+    {% endfor %}
+  </ul></p>
+  {% endif %}
+{% endblock %}

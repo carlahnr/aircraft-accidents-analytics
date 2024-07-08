@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ country.CountryName }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Accidents</h2>
+  <p>
+    {% for a in flights %}      
+      <table>
+        <tr>
+          <th>PlaneID</th>
+          <th>FlightNumber</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>LocationID</th>
+          <th>Type</th>
+          <th>CarrierID</th>
+          <th>AboardPassenger</th>
+          <th>AboardCrew</th>
+          <th>FatalityCrew</th>
+          <th>FatalityPassenger</th>
+          <th>Ground</th>
+          <th>Route</th>
+        </tr>
+        <tr>
+          <td><a href="/planes/{{ a.PlaneID }}">{{ a.PlaneID }}</a></td>
+          <td>{{ a.FlightNumber }}</td>
+          <td>{{ a.Date }}</td>
+          <td>{{ a.Time }}</td>
+          <td><a href="/locations/{{ a.LocationID }}">{{ a.LocationID }}</a></td>
+          <td>{{ a.Type }}</td>
+          <td><a href="/carriers/{{ a.CarrierID }}">{{ a.CarrierID }}</a></td>
+          <td>{{ a.AboardPassenger }}</td>
+          <td>{{ a.AboardCrew }}</td>
+          <td>{{ a.FatalityCrew }}</td>
+          <td>{{ a.FatalityPassenger }}</td>
+          <td>{{ a.Ground }}</td>
+          <td>{{ a.Route }}</td>
+        </tr>
+      </table>
+      <p><b>Summary:</b>{{ a.Summary }}</p>
+    {% endfor %}
+  </p>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Accident Flights (Flight table){% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>There are {{ flight.FlightCount }} accident flights on the database.<br>
+  The oldest accident was on {{ flight.MinDate }}, and the newest was on  {{ flight.MaxDate }}.
+</p>
+
+<table> 
+  <tr>
+    <th><b>Plane Id</b></th>
+    <th><b>Flight Number</b></th>
+    <th><b>Date</b></th>
+    <th><b>Time</b></th>
+    <th><b>Location (Country)</b></th>
+    <th><b>Type</b></th>
+    <th><b>Carrier</b></th>
+    <th><b>Aboard Passengers</b></th>
+    <th><b>Aboard Crew</b></th>
+    <th><b>Fatality Crew</b></th>
+    <th><b>Fatality Passengers</b></th>
+    <th><b>Ground</b></th>
+    <th><b>Route</b></th>
+    <th><b>Summary</b></th>
+   </tr>
+   
+  {% for flight in flights %}
+    <tr>
+      <td><a href="/flights/{{ flight.PlaneID }}">{{flight.PlaneID }}</a></td>
+      <td>{{flight.FlightNumber }}</td>
+      <td>{{flight.Date }}</td>
+      <td>{{flight.Time }}</td>
+      <td><a href="/locations/{{flight.LocationID }}">{{flight.LocationID }}</a> ({{flight.CountryID }})</td>
+      <td>{% if flight.Type == "C" %}Commercial{% endif %}
+        {% if flight.Type == "M" %}Military{% endif %}
+        {% if flight.Type == "P" %}Private{% endif %}
+      </td>
+      <td><a href="/carriers/{{ flight.CarrierID }}">{{flight.CarrierName }}</a></td>
+      <td>{{flight.AboardPassenger }}</td>
+      <td>{{flight.AboardCrew }}</td>
+      <td>{{flight.FatalityCrew }}</td>
+      <td>{{flight.FatalityPassenger }}</td>
+      <td>{{flight.Ground }}</td>
+      <td>{{flight.Route }}</td>
+      <td>{% if flight.Summary %} {{flight.Summary[:20] }}{% if flight.Summary|length > 20 %}(...){% endif %}
+        {% else %} -
+        {% endif %}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

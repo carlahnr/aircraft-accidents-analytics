@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}10 worst accidents {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <p><ol>
+    {% for fl in flights %}      
+      <li>
+        <b>Fatalities: </b>more than <b>{{ fl.FatalityCrew }}</b>, <b>Date: </b>{{ fl.Date }}, <b>Time: </b>{{ fl.Time }}
+        <ul>
+          <li>PlaneID: <a href="/planes/{{ fl.PlaneID }}">{{fl.PlaneID }}</a></li>
+          <li>Flight type: {{ fl.Type }}</li>
+          <li>Country: <a href="/countries/{{ fl.CountryID }} }}">{{ fl.CountryName }}</a></li>
+          <li>Carrier: <a href="/carriers/{{ fl.CarrierID }} }}">{{ fl.CarrierName }}</a></li>
+        </ul>
+      </li>        
+    {% endfor %}
+    </ol>
+  </p>
+{% endblock %}

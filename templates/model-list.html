@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Aircraft Models (Model table){% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>There are {{ model.ModelCount }} aircrafts models by {{ model.ManufacturerCount }} manufacturers.</p>
+
+  <table> 
+  <tr>
+    <th><b>Model Id</b></th>
+    <th><b>Manufacturer</b></th>
+   </tr>
+   
+  {% for model in models %}
+    <tr>
+      <td><a href="/models/{{ model.ModelID }}">{{model.ModelID }}</a></td>
+      <td><a href="/manufacturers/{{ model.ManufacturerID }}">{{ model.ManufacturerName }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

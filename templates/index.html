@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Airplane Crashes Since 1928 database{% endblock %}</h1>
+{% endblock %}
+  
+{% block content %}
+<h2>About</h2>
+<p>
+  History of airplane crashes throughout the world, from 1928 to 2019.
+  This includes flights made by commercial passenger airlines, cargo freights, military and private flights, from {{ stats.countries }} countries.
+</p>
+
+<h2>Database Statistics</h2>
+<ul>
+  <li>Total accidents: {{ stats.accidents }}</li> 
+  <li>Models: {{ stats.models }}</li>
+  <li>Manufacturers: {{ stats.manufacturers }}</li>
+  <li>Carriers: {{ stats.carriers }}</li>
+</ul>
+
+<h2>Curiosities</h2>
+<p><h5><a href="/models/accidents">20 Aircraft models with the most accidents</a></h5></p>
+<p><h5><a href="/countries/accidents/count">10 countries with the most accidents</a></h5></p>
+<p><h5><a href="/worst_accidents">10 worst accidents</a></h5></p>
+
+
+<h2>Functionality</h2>
+
+<h3>Accident Flights (Flight table)</h3>
+<p>
+   <a href="/flights">List all {{ stats.flights }} accident flights</a>
+</p>
+<p>Get flight info:
+<form name="flight_num" action="javascript:window.open('/flights/'+document.forms['flight_num'].elements['id'].value,'_self')">
+   Aircraft's Registration id:<input value="3X-GDO" name="id" type="text"/><input type="submit" value="get"/>
+</form>
+</p>
+<p>
+  <form name="flight_search" action="javascript:window.open('/flights/search/'+document.forms['flight_search'].elements['expr'].value,'_self')">
+   Search by summary of flight: <input name="expr" id="expr" value="Atlantic" required/>
+    <input type="submit" value="search"/>
+  </form>
+</p>
+
+<h3>Route Stops (Stop table)</h3>
+<p>
+   <a href="/stops">List all {{ stats.stops }} route stops</a>
+</p>
+<p>Get routes info:
+<form name="stops_id" action="javascript:window.open('/stops/'+document.forms['stops_id'].elements['id'].value,'_self')">
+   Aircraft's Registration id:<input value="NC9689" name="id" type="text"/><input type="submit" value="get"/>
+</form>
+</p>
+
+<h3>Air Carriers (Carrier table)</h3>
+<p>
+   <a href="/carriers">List all {{ stats.carriers }} air carriers</a>
+</p>
+<p>Get carrier info:
+<form name="car_id" action="javascript:window.open('/carriers/'+document.forms['car_id'].elements['id'].value,'_self')">
+   Carrier Id:<input value="10" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+<p>
+  <form name="car_search" action="javascript:window.open('/carriers/search/'+document.forms['car_search'].elements['expr'].value,'_self')">Search by air carrier name: 
+    <input name="expr" id="expr" value="British" required/>
+    <input type="submit" value="search"/>
+  </form>
+</p>
+
+<hr>
+
+<h3>Countries (Country table)</h3>
+<p>
+   <a href="/countries">List all {{ stats.countries }} countries</a>
+</p>
+<p>
+   <a href="/countries/accidents/count">Top 10 countries with more accidents</a>
+</p>
+<p>Get country info:
+<form name="coid" action="javascript:window.open('/countries/'+document.forms['coid'].elements['id'].value,'_self')">
+   Country Id:<input value="GB" name="id" type="text" size="2"/><input type="submit" value="get"/>
+</form>
+</p>
+<p>
+  <form name="c_search" action="javascript:window.open('/countries/search/'+document.forms['c_search'].elements['expr'].value,'_self')">Search by country name: 
+    <input name="expr" id="expr" value="South" required/>
+    <input type="submit" value="search"/>
+  </form>
+</p>
+
+<h3>Cities (City table)</h3>
+<p>
+   <a href="/cities">List all {{ stats.cities }} cities</a>
+</p>
+<p>Get city info:
+<form name="cty_id" action="javascript:window.open('/cities/'+document.forms['cty_id'].elements['id'].value,'_self')">
+   City Id:<input value="1" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+<p>
+  <form name="cty_search" action="javascript:window.open('/cities/search/'+document.forms['cty_search'].elements['expr'].value,'_self')">Search by city name: 
+    <input name="expr" id="expr" value="New Orleans" required/>
+    <input type="submit" value="search"/>
+  </form>
+</p>
+
+<h3>Accident Locations (Location table)</h3>
+<p>
+   <a href="/locations">List all {{ stats.locations }} accident locations</a>
+</p>
+<p>Get location info:
+<form name="loc_id" action="javascript:window.open('/locations/'+document.forms['loc_id'].elements['id'].value,'_self')">
+   Location Id:<input value="22" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+
+<hr>
+
+
+
+<h3>Aircrafts Manufacturers (Manufacturer table)</h3>
+<p>
+   <a href="/manufacturers">List all {{ stats.manufacturers }} manufacturers</a>
+</p>
+<p>Get manufacturer info:
+<form name="man_id" action="javascript:window.open('/manufacturers/'+document.forms['man_id'].elements['id'].value,'_self')">
+   Manufacturer Id:<input value="5" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+<p>
+  <form name="man_search" action="javascript:window.open('/manufacturers/search/'+document.forms['man_search'].elements['expr'].value,'_self')">Search by air manufacturer name:
+    <input name="expr" id="expr" value="Airbus" required/>
+    <input type="submit" value="search"/>
+  </form>
+</p>
+
+<h3>Aircraft Models (Model table)</h3>
+<p>
+   <a href="/models">List all {{ stats.models }} models of aircraft</a>
+</p>
+<p>Get model info:
+<form name="mod_id" action="javascript:window.open('/models/'+document.forms['mod_id'].elements['id'].value,'_self')">
+   Model Id:<input value="Airbus A310-304" name="id" type="text"/><input type="submit" value="get"/>
+</form>
+</p>
+<p>
+  <form name="mod_search" action="javascript:window.open('/models/search/'+document.forms['mod_search'].elements['expr'].value,'_self')">Search by name: 
+    <input name="expr" id="expr" value="Antonov An-24" required/>
+    <input type="submit" value="search"/>
+  </form>
+</p>
+
+<h3>Aircrafts (Plane table)</h3>
+<p>
+   <a href="/planes">List all {{ stats.planes }} aircrafts</a>
+</p>
+<p>Get plane info:
+<form name="p_id" action="javascript:window.open('/planes/'+document.forms['p_id'].elements['id'].value,'_self')">
+   Plane Id:<input value="5Y-BEN" name="id" type="text"/><input type="submit" value="get"/>
+</form>
+</p>
+
+
+{% endblock %}

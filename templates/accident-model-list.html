@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}20 Aircraft Models with the most accidents{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table> 
+  <tr>
+    <th><b>Model Id</b></th>
+    <th><b>Manufacturer</b></th>
+    <th><b>Amount of Accidents</b></th>
+    <th><b>Oldest Accident with this Model</b></th>
+    <th><b>Newest Accident with this Model</b></th>
+   </tr>
+   
+  {% for model in models %}
+    <tr>
+      <td><a href="/models/{{ model.ModelID }}">{{model.ModelID }}</a></td>
+      <td><a href="/manufacturers/{{ model.ManufacturerID }}">{{ model.ManufacturerName }}</td>
+      <td>{{ model.AccidentCount }}</td>
+      <td>{{ model.OldestAccident }}</td>
+      <td>{{ model.NewestAccident }}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

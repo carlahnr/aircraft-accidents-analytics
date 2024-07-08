@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Stops in a flight route (Stop table){% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>The {{route.FlightCount }} flights on the database had a total of {{route.StopCount }} stops in their routes.<br>
+  The longest route has {{route.MaxStop }} stops in its route.
+</p>
+
+  <table> 
+  <tr>
+    <th><b>PlaneID</b></th>
+    <th><b>StopOrder</b></th>
+    <th><b>CityID</b></th>
+   </tr>
+   
+  {% for route in routes %}
+    <tr>
+      <td><a href="/stops/{{ route.PlaneID }}">{{route.PlaneID }}</a></td>
+      <td>{{ route.StopOrder }}</td>
+      <td><a href="/cities/{{ route.CityID }}">{{ route.CityName }}</a></td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

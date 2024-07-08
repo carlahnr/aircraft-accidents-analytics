@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %} Top 10 countries with more accidents {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<h2>Accidents</h2>
+<p>
+<table>
+  <tr>
+    <th>CountryID</th>
+    <th>Country</th>
+    <th>NumberOfAccidents</th>
+  </tr>
+  {% for a in flights %}
+    <tr>
+      <td><a href="/countries/{{ a.CountryId }}">{{a.CountryId }}</a></td>
+      <td>{{ a.CountryName }}</td>
+      <td>{{ a.N }}</td>
+    </tr>
+  {% endfor %}
+</table>
+</p>
+{% endblock %}

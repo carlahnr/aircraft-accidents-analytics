@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ manufacturer.ManufacturerName }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Manufacturer info</h2>
+  <p>
+    <b>ManufacturerID: </b>{{ manufacturer.ManufacturerID }}
+  </p>
+  <p>
+    <b>ManufacturerName: </b>{{ manufacturer.ManufacturerName }}
+  </p>
+  <p>
+    <b>Active: </b>{{ manufacturer.Active }}
+  </p>
+
+  {% if models %}
+  <p>
+    <b>Models by {{ manufacturer.ManufacturerName }}: </b><ul>
+    {% for mo in models %}      
+      <li><a href="/models/{{ mo.ModelID }}">{{ mo.ModelID }}</a>
+    </li>
+    {% endfor %}
+  </ul></p>
+  {% endif %}
+  
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Aircraft Manufacturers (Manufacturer table){% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>There are {{manufacturer.Count }} aircrafts manufacturers.</p>
+
+  <table> 
+  <tr>
+    <th><b>Id</b></th>
+    <th><b>Manufacturer Name</b></th>
+    <th><b>Is Active?</b></th>
+   </tr>
+   
+  {% for manufacturer in manufacturers %}
+    <tr>
+      <td><a href="/manufacturers/{{ manufacturer.ManufacturerID }}">{{manufacturer.ManufacturerID }}</a></td>
+      <td>{{ manufacturer.ManufacturerName }}</td>
+      <td>{% if manufacturer.Active == "S" %}Yes
+        {% else %}No
+        {% endif %}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

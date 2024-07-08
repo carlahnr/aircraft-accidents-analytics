@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ carrier.CarrierName }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Carrier info</h2>
+  <p>
+    <b>CarrierID: </b>{{ carrier.CarrierID }}
+  </p>
+  <p>
+    <b>CarrierName: </b>{{ carrier.CarrierName }}
+  </p>
+  <p>
+    <b>Active: </b>{{ carrier.Active }}
+  </p>
+
+  {% if flights %}
+  <p>
+    <b>Accidents flights by {{ carrier.CarrierName }}: </b><ul>
+    {% for fl in flights %}      
+      <li><a href="/flights/{{ fl.PlaneID }}">{{ fl.PlaneID }}</a>, {{ fl.Date }}, {{ fl.Time }}, Flight type: {{ fl.Type }}
+    </li>
+    {% endfor %}
+  </ul></p>
+  {% endif %}
+  
+{% endblock %}

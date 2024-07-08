@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Aircrafts (Plane table){% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>There are {{plane.PlaneCount }} aircrafts.</p>
+
+  <table> 
+  <tr>
+    <th><b>Plane Id</b></th>
+    <th><b>Chassis Number (CN/LN)</b></th>
+    <th><b>Model</b></th>
+   </tr>
+   
+  {% for plane in planes %}
+    <tr>
+      <td><a href="/planes/{{ plane.PlaneID }}">{{plane.PlaneID }}</a></td>
+      <td>{{ plane.CNLN }}</td>
+      <td><a href="/models/{{ plane.ModelID }}">{{ plane.ModelID }}</a></td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

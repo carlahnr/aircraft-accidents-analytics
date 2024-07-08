@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ search.expr }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Search results</h2>
+  <p>Cities that contains "{{ search.expr }}" in the name:</p>
+  <p><ul>
+    {% for c in cities %}      
+      <li><a href="/cities/{{ c.CityID }}">{{ c.CityName }}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+{% endblock %}

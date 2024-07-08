@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ location.LocationID }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Accident Location info</h2>
+  <p>
+    <b>LocationID: </b>{{ location.LocationID }}
+  </p>
+  <p>
+    <b>CityID: </b> <a href="/cities/{{ location.CityID }}">{{ location.CityID }}</a>
+  </p>
+  <p>
+    <b>CountryID: </b> <a href="/countries/{{ location.CountryID }}">{{ location.CountryID }}</a>
+  </p>
+  <p>
+    <b>Description: </b> 
+    {% if location.Description %} {{ location.Description }}
+    {% else %} No description for this accident location.
+    {% endif %}
+  </p>
+  
+{% endblock %}

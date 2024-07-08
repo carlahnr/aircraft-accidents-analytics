@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Air Carriers (Carrier table){% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>There are {{carrier.Count }} carriers.</p>
+
+  <table> 
+  <tr>
+    <th><b>Id</b></th>
+    <th><b>Carrier Name</b></th>
+    <th><b>Is Active?</b></th>
+   </tr>
+   
+  {% for carrier in carriers %}
+    <tr>
+      <td><a href="/carriers/{{ carrier.CarrierID }}">{{carrier.CarrierID }}</a></td>
+      <td>{{ carrier.CarrierName }}</td>
+      <td>{% if carrier.Active == "S" %}Yes
+        {% else %}No
+        {% endif %}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

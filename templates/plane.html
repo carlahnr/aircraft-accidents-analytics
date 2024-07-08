@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ plane.PlaneID }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Plane info</h2>
+  <p>
+    <b>Plane Id: </b>{{ plane.PlaneID }}
+  </p>
+  <p>
+    <b>Construction Number / Line Number (CN/LN): </b>{{ plane.CNLN }}
+  </p>
+  <p>
+    <b>ModelID: </b>{{ plane.ModelID }} >> <a href="/models/{{ plane.ModelID }}">See model info</a>
+  </p>
+  <p>
+    <b>Accident: </b><a href="/flights/{{ plane.PlaneID }}">See accident info</a>
+  </p>
+  
+{% endblock %}

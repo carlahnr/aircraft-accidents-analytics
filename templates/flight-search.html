@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ search.expr }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Search results for accident summary</h2>
+  <p>Accidents that contains "{{ search.expr }}" in the summary.</p>
+  <p><ul>
+    {% for f in flights %}      
+      <li> Plane Id: <a href="/flights/{{ f.PlaneID }}">{{ f.PlaneID }}</a>, {{ f.Date }}, {{ f.Time }}</li>
+    {% endfor %}
+    </ul>
+  </p>
+{% endblock %}

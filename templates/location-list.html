@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Accident Locations (Location table){% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<p>There are {{location.LocationCount }} accident locations.</p>
+
+  <table> 
+  <tr>
+    <th><b>Id</b></th>
+    <th><b>City</b></th>
+    <th><b>Country</b></th>
+    <th><b>Description</b></th>
+   </tr>
+   
+  {% for location in locations %}
+    <tr>
+      <td><a href="/locations/{{ location.LocationID }}">{{location.LocationID }}</a></td>
+      <td>
+      {% if location.CityID %}
+        <a href="/cities/{{ location.CityID }}">{{location.CityName }}{{location.CityID }}</a>
+        {% else %}None
+        {% endif %}
+      </td>
+      <td><a href="/countries/{{ location.CountryID }}">{{location.CountryName }}</a></td>
+      <td>{% if location.Description %} {{location.Description[:40] }}{% if location.Description|length > 40 %}(...){% endif %}
+        {% else %} -
+        {% endif %}</td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

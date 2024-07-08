@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ stop.PlaneID }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Info for Stops in a flight route</h2>
+  <p>
+    <b>PlaneID: </b>{{ stop.PlaneID }}
+  </p>
+
+  {% if route %}
+  <p>
+    <b>StopOrder / CityID: </b><ul>
+    {% for ro in route %}      
+      <li>{{ ro.StopOrder }} - <a href="/cities/{{ ro.CityID }}">{{ ro.CityID }}</a></li>
+    {% endfor %}
+  </ul></p>
+  {% endif %}
+
+{% endblock %}
+

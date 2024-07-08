@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Cities (City table){% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+  <p>There are {{ city.CityCount }} cities at {{ city.CountryCount }} countries.
+  </p>
+  <table> 
+  <tr>
+    <th><b>Id</b></th>
+    <th><b>City Name</b></th>
+    <th><b>Country</b></th>
+   </tr>
+   
+  {% for city in cities %}
+    <tr>
+      <td><a href="/cities/{{ city.CityID }}">{{city.CityID }}</a></td>
+      <td>{{ city.CityName }}</td>
+      <td><a href="/countries/{{ city.CountryID }}">{{ city.CountryName }}</a></td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endblock %}

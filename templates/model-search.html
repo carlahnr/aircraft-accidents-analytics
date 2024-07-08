@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ search.expr }} {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <h2>Search results</h2>
+  <p>Models that contains "{{ search.expr }}" in the name:</p>
+  <p><ul>
+    {% for m in models %}      
+      <li><a href="/models/{{ m.ModelID }}">{{ m.ModelID }}</a></li>
+    {% endfor %}
+    </ul>
+  </p>
+{% endblock %}
