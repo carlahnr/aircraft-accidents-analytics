@@ -19,6 +19,9 @@ In Python, made using Flask, SQLite and Bootstrap5, and it uses data from a Kagg
 
 ### Directories structure
  - **/ :** root directory of the project.
+ - **/sql :** SQL code files for creating and populating data structures.
+ - **/static :** all static assets, such as Javascript and CSS files.
+ - **/templates :** templates for the views using mainly HTML and Jinja.
 
 ### Endpoints
  The app contains 2 endpoints:
